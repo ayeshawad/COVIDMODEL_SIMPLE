@@ -53,7 +53,7 @@ p.del_MPhi_D   = 6.0607;     % rate macs die from phaocytosis
 
 %Infiltrating macrophage %------------------------------------
 p.MPhi_I_0     = 0;             % Initial infiltrating macrophages x 10^8 cells 
-p.p_MPhi_I_G   = 0.42;        % differentiation of monocyte to macrophage by GM-CSF (rate)
+p.p_MPhi_I_G   = 0.42*5e-4;        % differentiation of monocyte to macrophage by GM-CSF (rate)
 p.eps_G_MPhi   = 2664.5/1e5;        % differentation of monocyte to macrophage by GM-CSf (half-effect)
 p.h_M_MPhi     = 2.0347;     	% differentation of monocyte to macrophage by GM-CSf (hill coefficient)
 p.p_MPhi_I_L   = p.p_MPhi_I_G;             % differentiation of monocyte to macrophage by IL-6 (rate)
