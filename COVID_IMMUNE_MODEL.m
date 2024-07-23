@@ -51,13 +51,13 @@ dM = (p.M_prod_star+(p.psi_M_max-p.M_prod_star)*G_B^p.h_M/(G_B^p.h_M+p.eps_G_M^p
 dN = (p.N_prod_star+(p.psi_N_max-p.N_prod_star)*(C_BF-p.C_BF_star)/(C_BF-p.C_BF_star+p.eps_C_N))*p.NR+p.p_N_L*L_B/(L_B+p.eps_L_N)-p.d_N*N;
 dT = p.p_T_I*ylag2(3)/(1+L_B/p.eps_L_T)+p.p_T_Gamma*Gamma_B/(Gamma_B+p.eps_Gamma_T)*T-p.d_T*T - (((p.del_T_K * T * K)/(K + p.eps_T_K))* (p.eps_K_L / (p.eps_K_L + L_B)));
 
-dL_U = p.p_L_I*I/(I+p.eta_L_I)+p.p_L_MPhi*MPhi_I/(MPhi_I+p.eta_L_MPhi)+p.p_L_M*M/(M+p.eta_L_M)-p.k_lin_L*L_U-p.k_B_L*((N+T+M)*p.A_L-L_B)*L_U+p.k_U_L*L_B;
-dL_B = -p.k_int_L*L_B+p.k_B_L*((N+T+M)*p.A_L-L_B)*L_U-p.k_U_L*L_B;
-dG_U = p.p_G_MPhi_I*MPhi_I/(MPhi_I+p.eta_G_MPhi)+p.p_G_M*M/(M+p.eta_G_M)-p.k_lin_G*G_U-p.k_B_G*(M*p.A_G-G_B)*G_U+p.k_U_G*G_B;
-dG_B = -p.k_int_G*G_B+p.k_B_G*(M*p.A_G-G_B)*G_U-p.k_U_G*G_B;
-dC_U = p.p_C_M*M/(M+p.eta_C_M)-p.k_lin_C*C_U-p.k_B_C*(N*p.A_C-C_B)*C_U^p.stoch_C+p.k_U_C*C_B;
-dC_B = -p.k_int_C*C_B+p.k_B_C*(N*p.A_C-C_B)*C_U^p.stoch_C-p.k_U_C*C_B;
-dF_U = p.p_F_I*I/(I+p.eta_F_I)+p.p_F_MPhi*MPhi_I/(MPhi_I+p.eta_F_MPhi)+p.p_F_M*M/(M+p.eta_F_M)-p.k_lin_F*F_U-p.k_B_F*((T+I)*p.A_F-F_B)*F_U+p.k_U_F*F_B;
+dL_U = p.p_L_I*I/(I+p.eta_L_I)+p.p_L_MPhi*MPhi_I/(MPhi_I+p.eta_L_MPhi)-p.k_lin_L*L_U-p.k_B_L*((N+T+M)*p.A_L-L_B)*L_U+p.k_U_L*L_B; %+p.p_L_M*M/(M+p.eta_L_M)
+dL_B = -p.k_int_L*L_B+p.k_B_L*((N+T)*p.A_L-L_B)*L_U-p.k_U_L*L_B;
+dG_U = p.p_G_MPhi_I*MPhi_I/(MPhi_I+p.eta_G_MPhi)-p.k_lin_G*G_U-p.k_B_G*(MPhi_I*p.A_G-G_B)*G_U+p.k_U_G*G_B; %+p.p_G_M*M/(M+p.eta_G_M)
+dG_B = -p.k_int_G*G_B+p.k_B_G*(MPhi_I*p.A_G-G_B)*G_U-p.k_U_G*G_B;
+%dC_U = p.p_C_M*M/(M+p.eta_C_M)-p.k_lin_C*C_U-p.k_B_C*(N*p.A_C-C_B)*C_U^p.stoch_C+p.k_U_C*C_B;
+%dC_B = -p.k_int_C*C_B+p.k_B_C*(N*p.A_C-C_B)*C_U^p.stoch_C-p.k_U_C*C_B;
+dF_U = p.p_F_I*I/(I+p.eta_F_I)+p.p_F_MPhi*MPhi_I/(MPhi_I+p.eta_F_MPhi)-p.k_lin_F*F_U-p.k_B_F*((T+I)*p.A_F-F_B)*F_U+p.k_U_F*F_B; %+p.p_F_M*M/(M+p.eta_F_M)
 dF_B = -p.k_int_F*F_B+p.k_B_F*((T+I)*p.A_F-F_B)*F_U-p.k_U_F*F_B;
 
 dK =  (p.K_prod_star * p.KR)- (p.d_K * K) + ((p.p_K_A * alpha_B * K) / (alpha_B + p.eps_K_A)); 
