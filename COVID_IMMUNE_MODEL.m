@@ -48,7 +48,7 @@ dD = p.d_I*I+p.del_N*I/(1+(p.IC_50_N/N)^p.h_N)+p.del_N*p.rho*S/(1+(p.IC_50_N/N)^
 dMPhi_R = -p.a_I_MPhi*MPhi_R*(I+D)-p.del_MPhi_D*D*MPhi_R+(1-MPhi_R/p.MPhi_max)*p.lam_MPhi*MPhi_I/(V+p.eps_V_MPhi);
 dMPhi_I = p.a_I_MPhi*MPhi_R*(I+D)+p.p_MPhi_I_G*G_B^p.h_M_MPhi/(G_B^p.h_M_MPhi+p.eps_G_MPhi^p.h_M_MPhi)*M+p.p_MPhi_I_L*L_B/(L_B+p.eps_L_MPhi)*M*(p.eps_alpha_MPhi^(p.h_MPhi_alpha)/(p.eps_alpha_MPhi^(p.h_MPhi_alpha)+alpha_B^(p.h_MPhi_alpha)))-p.d_MPhi_I*MPhi_I-p.del_MPhi_D*MPhi_I*D-(1-MPhi_R/p.MPhi_max)*p.lam_MPhi*MPhi_I/(V+p.eps_V_MPhi)-(p.del_MPhi*alpha_B*Gamma_B*MPhi_I)/(alpha_B*Gamma_B+p.eps_Gamma_alpha);%-p.del_I_T*T*MPhi_I*100;%-p.del_MPhi_D*MPhi_I*T;    
 dM = 0; %(p.M_prod_star+(p.psi_M_max-p.M_prod_star)*G_B^p.h_M/(G_B^p.h_M+p.eps_G_M^p.h_M))*p.MR+p.p_M_I*I*M/(I+p.eps_I_M)-p.p_MPhi_I_G*G_B^p.h_M_MPhi*M/(G_B^p.h_M_MPhi+p.eps_G_MPhi^p.h_M_MPhi)-p.p_MPhi_I_L*L_B/(L_B+p.eps_L_MPhi)*M*(p.eps_alpha_MPhi^(p.h_MPhi_alpha)/(p.eps_alpha_MPhi^(p.h_MPhi_alpha)+alpha_B^(p.h_MPhi_alpha)))-p.d_M*M
-dN = (p.N_prod_star+(p.psi_N_max-p.N_prod_star)*(C_BF-p.C_BF_star)/(C_BF-p.C_BF_star+p.eps_C_N))*p.NR+p.p_N_L*L_B/(L_B+p.eps_L_N)-p.d_N*N;
+dN = (p.N_prod_star)*p.NR+p.p_N_L*L_B/(L_B+p.eps_L_N)-p.d_N*N; %+(p.psi_N_max-p.N_prod_star)*(C_BF-p.C_BF_star)/(C_BF-p.C_BF_star+p.eps_C_N)
 dT = p.p_T_I*ylag2(3)/(1+L_B/p.eps_L_T)+p.p_T_Gamma*Gamma_B/(Gamma_B+p.eps_Gamma_T)*T-p.d_T*T - (((p.del_T_K * T * K)/(K + p.eps_T_K))* (p.eps_K_L / (p.eps_K_L + L_B)));
 
 dL_U = p.p_L_I*I/(I+p.eta_L_I)+p.p_L_MPhi*MPhi_I/(MPhi_I+p.eta_L_MPhi)+p.p_L_M*M/(M+p.eta_L_M)-p.k_lin_L*L_U-p.k_B_L*((N+T+M)*p.A_L-L_B)*L_U+p.k_U_L*L_B;
