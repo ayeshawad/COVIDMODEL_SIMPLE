@@ -109,15 +109,15 @@ p.p_L_I = 1188.7/1E2;
 p.eta_L_I =  0.7;
 p.p_L_MPhi = 1872;          %IL-6 production by infiltrating (systemic) macrophages (rate)
 p.eta_L_MPhi = 1e-5;        %IL-6 production by infiltrating (systemic) macrophages (half-effect)
-p.p_L_M = 72560/1e2*0.05;               %IL-6 production by monocytes (rate)
-p.eta_L_M = 0.4498*1e-2;               %IL-6 production by monocytes (half-effect)
+p.p_L_M = 0;               %IL-6 production by monocytes (rate)
+p.eta_L_M = 0;               %IL-6 production by monocytes (half-effect)
 p.k_lin_L = 16.636;%14.6872;        % renal clearance
 p.k_int_L = 61.8;            % internalisation rate
 p.k_B_L = 0.0018;           % (converted) binding rate
 p.k_U_L = 22.29;           % (converted) unbinding rate
 p.R_L_N = 720;             % Number of IL-6 receptors on neutrophils
 p.R_L_T = 300;             % Number of IL-6 receptors on T cells
-p.R_L_M = 509;             % Number of IL-6 receptors on monocytes
+p.R_L_M = 0;             % Number of IL-6 receptors on monocytes
 p.MM_L = 21000;              % Molecular weight of GM-CSF
 
 % GM-CSF --------------------------------------------------------
@@ -125,13 +125,13 @@ p.G_U_0 = 2.43;             % Initial GM-CSF (unbound) in ng/mL
 p.G_B_0 = 0;                % Initial GM-CSF (bound) in ng/mL
 p.p_G_MPhi_I = 20000;         % production of GM-CSF by macrophages                                 UNKNOWN
 p.eta_G_MPhi = 0.1;   %unknown   % half-effect production GM-CSF by monocytes                      UNKNOWN BUT ASSUMED EQUAL TO P_G_M AT HOMEOSTASIS
-p.p_G_M = 10680;              % production of GM-CSF by monocytes
-p.eta_G_M = 0.14931;   %unknown   % half-effect production GM-CSF by monocytes                         UNKNOWN BUT ESTIMATED FROM HOMEOSTASIS
+p.p_G_M = 0;              % production of GM-CSF by monocytes
+p.eta_G_M = 0;   %unknown   % half-effect production GM-CSF by monocytes                         UNKNOWN BUT ESTIMATED FROM HOMEOSTASIS
 p.k_lin_G = 11.7427;        % renal clearance
 p.k_int_G = 73.44;            % internalisation rate
 p.k_B_G = 0.0021;           % (converted) binding rate
 p.k_U_G = 522.72;           % (converted) unbinding rate
-p.R_G_M = 1058;%1820;             % Number of GM-CSF receptors on monocytes   % XXXXXXXXX CHANGES THIS FROM 1820 as couldn't find original reference
+p.R_G_M = 0;             % Number of GM-CSF receptors on monocytes   % XXXXXXXXX CHANGES THIS FROM 1820 as couldn't find original reference
 p.MM_G = 14E3;              % Molecular weight of GM-CSF
 
 % G-CSF --------------------------------------------------------
@@ -219,8 +219,8 @@ p.alpha_U_0 = 0.7;
 p.alpha_B_0 = 5.98 *10^(-6);               
 p.p_alpha_MPhi = 3824;            %production of TNF alpha by Macrophages        
 p.eta_alpha_MPhi = 2.22*10^(-4) ;   %half effect of TNF alpha by Macrophages 
-p.p_alpha_M = 110;                %production of TNF alpha by Monocytes        
-p.eta_alpha_M = 0.3851;          %half effect of TNF alpha by Monocytes
+p.p_alpha_M = 0;               %production of TNF alpha by Monocytes        
+p.eta_alpha_M = 0;         %half effect of TNF alpha by Monocytes
 p.p_alpha_T = 450;          %production of TNF alpha by T cells        
 p.eta_alpha_T = 9.706*10^(-5);      %half effect of IFN gamma production by T cells 
 p.p_alpha_K = 1000;            %production of TNF alpha by NK cells        
